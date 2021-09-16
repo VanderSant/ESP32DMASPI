@@ -2,12 +2,12 @@
 
 ARDUINO_ESP32_DMA_SPI_NAMESPACE_BEGIN
 
-bool Master::begin(const uint8_t spi_bus, const int8_t sck, const int8_t miso, const int8_t mosi, const int8_t ss) {
+bool Master::begin(const uint8_t spi_bus,const int ss_pin, const int8_t sck, const int8_t miso, const int8_t mosi, const int8_t ss) {
     if ((sck == -1) && (miso == -1) && (mosi == -1) && (ss == -1)) {
         bus_cfg.sclk_io_num = (spi_bus == VSPI) ? SCK : 14;
         bus_cfg.miso_io_num = (spi_bus == VSPI) ? MISO : 12;
         bus_cfg.mosi_io_num = (spi_bus == VSPI) ? MOSI : 13;
-        if_cfg.spics_io_num = (spi_bus == VSPI) ? SS : 15;
+        if_cfg.spics_io_num = (spi_bus == VSPI) ? SS : ss_pin;
     } else {
         bus_cfg.sclk_io_num = sck;
         bus_cfg.miso_io_num = miso;
