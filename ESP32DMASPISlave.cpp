@@ -17,7 +17,7 @@ bool Slave::begin(const uint8_t spi_bus, const int8_t sck, const int8_t miso, co
         bus_cfg.sclk_io_num = (spi_bus == VSPI) ? SCK : 14;
         bus_cfg.miso_io_num = (spi_bus == VSPI) ? MISO : 12;
         bus_cfg.mosi_io_num = (spi_bus == VSPI) ? MOSI : 13;
-        if_cfg.spics_io_num = (spi_bus == VSPI) ? SS : 15;
+        if_cfg.spics_io_num = (spi_bus == VSPI) ? SS : 27;
     } else {
         bus_cfg.sclk_io_num = sck;
         bus_cfg.miso_io_num = miso;
